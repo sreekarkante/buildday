@@ -1,0 +1,185 @@
+import type { RewardTier, FAQItem, SlotOption } from '@/types';
+
+export const SITE_NAME = 'BuildDay';
+
+export const BRANCHES = [
+  'CSE - Computer Science',
+  'IT - Information Technology',
+  'ECE - Electronics & Communication',
+  'EEE - Electrical & Electronics',
+  'AI/ML - Artificial Intelligence',
+  'MECH - Mechanical',
+  'CIVIL - Civil Engineering',
+  'Other',
+] as const;
+
+export const GRAD_YEARS = [2025, 2026, 2027] as const;
+
+export const WORKSHOP_DATE = 'Saturday, 17 Oct 2026 — 10:00 AM IST';
+
+export const SLOTS: SlotOption[] = [
+  { value: 'slot-1', label: WORKSHOP_DATE },
+];
+
+export const REWARD_TIERS: RewardTier[] = [
+  {
+    threshold: 3,
+    name: 'AI Starter Kit',
+    description: '5 AI project blueprints with step-by-step guides',
+  },
+  {
+    threshold: 5,
+    name: 'Priority Seat + Certificate of Merit',
+    description: 'Front-row access and a special certificate',
+  },
+  {
+    threshold: 10,
+    name: 'Campus Champion Badge + Shoutout',
+    description: 'Featured on our leaderboard and social media',
+  },
+];
+
+export const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: 'Do I need to know coding or AI beforehand?',
+    answer: 'Not at all! This workshop is designed for complete beginners. You\'ll go from zero to a working AI app in 60 minutes using beginner-friendly tools. No prior AI or coding knowledge needed.',
+  },
+  {
+    question: 'Is this really free? What\'s the catch?',
+    answer: '100% free. No payment. No card. No hidden upsell during the workshop. This is a genuine learning event by NxtWave to help final-year students build real projects.',
+  },
+  {
+    question: 'Will I get a certificate?',
+    answer: 'Yes! Everyone who attends and submits a project during the workshop receives a certificate. You can add it directly to your LinkedIn profile and resume.',
+  },
+  {
+    question: 'What if I have exams or a timing clash?',
+    answer: 'We offer two time slots to choose from. Plus, all registered students get access to the recording link within 24 hours, so you won\'t miss anything.',
+  },
+  {
+    question: 'What will I actually build?',
+    answer: 'You\'ll build a real, working AI-powered application — like a resume screener, study-notes summariser, or campus Q&A bot. You\'ll have a live link you can put on your resume and show recruiters.',
+  },
+  {
+    question: 'What do I need to bring or install?',
+    answer: 'Just a laptop with a web browser and a stable internet connection. We\'ll use browser-based tools so there\'s nothing to install beforehand. A prep checklist will be sent after registration.',
+  },
+];
+
+// College list matching the migration seed data
+// This is used for the client-side searchable dropdown
+export const COLLEGES: { id: number; name: string; city: string; state: string }[] = [
+  // TELANGANA
+  { id: 1, name: 'JNTU Hyderabad', city: 'Hyderabad', state: 'Telangana' },
+  { id: 2, name: 'Osmania University College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 3, name: 'CBIT - Chaitanya Bharathi Institute of Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 4, name: 'VNRVJIET - VNR Vignana Jyothi Institute', city: 'Hyderabad', state: 'Telangana' },
+  { id: 5, name: 'Vasavi College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 6, name: 'MGIT - Mahatma Gandhi Institute of Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 7, name: 'MVSR Engineering College', city: 'Hyderabad', state: 'Telangana' },
+  { id: 8, name: 'BVRIT - B V Raju Institute of Technology', city: 'Narsapur', state: 'Telangana' },
+  { id: 9, name: 'GRIET - Gokaraju Rangaraju Institute', city: 'Hyderabad', state: 'Telangana' },
+  { id: 10, name: 'CVR College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 11, name: 'SNIST - Sreenidhi Institute of Science and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 12, name: 'MLRIT - MLR Institute of Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 13, name: 'KMIT - Keshav Memorial Institute of Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 14, name: 'KITS - Kakatiya Institute of Technology and Science', city: 'Warangal', state: 'Telangana' },
+  { id: 15, name: 'CMR College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 16, name: 'CMR Institute of Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 17, name: 'TKR College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 18, name: 'Vardhaman College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 19, name: 'Malla Reddy College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 20, name: 'Malla Reddy Engineering College', city: 'Hyderabad', state: 'Telangana' },
+  { id: 21, name: 'Anurag University', city: 'Hyderabad', state: 'Telangana' },
+  { id: 22, name: 'Guru Nanak Institutions Technical Campus', city: 'Hyderabad', state: 'Telangana' },
+  { id: 23, name: 'IIIT Hyderabad', city: 'Hyderabad', state: 'Telangana' },
+  { id: 24, name: 'BITS Pilani Hyderabad Campus', city: 'Hyderabad', state: 'Telangana' },
+  { id: 25, name: 'Nalla Malla Reddy Engineering College', city: 'Hyderabad', state: 'Telangana' },
+  { id: 26, name: 'Muffakham Jah College of Engineering', city: 'Hyderabad', state: 'Telangana' },
+  { id: 27, name: 'Deccan College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 28, name: 'IST - Institute of Science and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 29, name: 'Lords Institute of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 30, name: 'Stanley College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 31, name: "St. Martin's Engineering College", city: 'Hyderabad', state: 'Telangana' },
+  { id: 32, name: 'Geethanjali College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 33, name: 'Joginpally B.R. Engineering College', city: 'Hyderabad', state: 'Telangana' },
+  { id: 34, name: 'Matrusri Engineering College', city: 'Hyderabad', state: 'Telangana' },
+  { id: 35, name: 'Vignan Institute of Technology and Science', city: 'Hyderabad', state: 'Telangana' },
+  { id: 36, name: 'Sreyas Institute of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 37, name: "Aurora's Engineering College", city: 'Hyderabad', state: 'Telangana' },
+  { id: 38, name: 'Methodist College of Engineering and Technology', city: 'Hyderabad', state: 'Telangana' },
+  { id: 39, name: 'NIT Warangal', city: 'Warangal', state: 'Telangana' },
+  { id: 40, name: 'Kakatiya University College of Engineering', city: 'Warangal', state: 'Telangana' },
+  // ANDHRA PRADESH
+  { id: 41, name: 'JNTU Kakinada', city: 'Kakinada', state: 'Andhra Pradesh' },
+  { id: 42, name: 'JNTU Anantapur', city: 'Anantapur', state: 'Andhra Pradesh' },
+  { id: 43, name: 'Andhra University College of Engineering', city: 'Visakhapatnam', state: 'Andhra Pradesh' },
+  { id: 44, name: 'SVUCE - Sri Venkateswara University', city: 'Tirupati', state: 'Andhra Pradesh' },
+  { id: 45, name: 'RVR & JC College of Engineering', city: 'Guntur', state: 'Andhra Pradesh' },
+  { id: 46, name: 'KL University (KL Deemed)', city: 'Vijayawada', state: 'Andhra Pradesh' },
+  { id: 47, name: 'VIT-AP University', city: 'Amaravati', state: 'Andhra Pradesh' },
+  { id: 48, name: 'SRM University AP', city: 'Amaravati', state: 'Andhra Pradesh' },
+  { id: 49, name: 'GITAM University', city: 'Visakhapatnam', state: 'Andhra Pradesh' },
+  { id: 50, name: "Vignan's University", city: 'Guntur', state: 'Andhra Pradesh' },
+  { id: 51, name: 'Sasi Institute of Technology and Engineering', city: 'Tadepalligudem', state: 'Andhra Pradesh' },
+  { id: 52, name: 'NEC - Narasaraopeta Engineering College', city: 'Narasaraopet', state: 'Andhra Pradesh' },
+  { id: 53, name: 'Anil Neerukonda Institute of Technology', city: 'Visakhapatnam', state: 'Andhra Pradesh' },
+  { id: 54, name: 'MVGR College of Engineering', city: 'Vizianagaram', state: 'Andhra Pradesh' },
+  { id: 55, name: 'Raghu Engineering College', city: 'Visakhapatnam', state: 'Andhra Pradesh' },
+  { id: 56, name: 'GMR Institute of Technology', city: 'Rajam', state: 'Andhra Pradesh' },
+  { id: 57, name: 'Lakireddy Bali Reddy College of Engineering', city: 'Mylavaram', state: 'Andhra Pradesh' },
+  { id: 58, name: 'Velagapudi Ramakrishna Siddhartha Engineering College', city: 'Vijayawada', state: 'Andhra Pradesh' },
+  { id: 59, name: 'Prasad V Potluri Siddhartha Institute of Technology', city: 'Vijayawada', state: 'Andhra Pradesh' },
+  { id: 60, name: 'Potti Sriramulu Chalavadi Mallikarjuna Rao College', city: 'Vijayawada', state: 'Andhra Pradesh' },
+  { id: 61, name: 'Gudlavalleru Engineering College', city: 'Gudlavalleru', state: 'Andhra Pradesh' },
+  { id: 62, name: 'Bapatla Engineering College', city: 'Bapatla', state: 'Andhra Pradesh' },
+  { id: 63, name: 'SVEC - Sri Vasavi Engineering College', city: 'Tadepalligudem', state: 'Andhra Pradesh' },
+  { id: 64, name: 'QIS College of Engineering and Technology', city: 'Ongole', state: 'Andhra Pradesh' },
+  { id: 65, name: "Vignan's Institute of Engineering for Women", city: 'Visakhapatnam', state: 'Andhra Pradesh' },
+  { id: 66, name: 'IIIT Sri City', city: 'Sri City', state: 'Andhra Pradesh' },
+  { id: 67, name: 'IIIT RK Valley', city: 'Kadapa', state: 'Andhra Pradesh' },
+  { id: 68, name: 'NIT Andhra Pradesh', city: 'Tadepalligudem', state: 'Andhra Pradesh' },
+  { id: 69, name: 'Centurion University', city: 'Vizianagaram', state: 'Andhra Pradesh' },
+  { id: 70, name: 'SRKR Engineering College', city: 'Bhimavaram', state: 'Andhra Pradesh' },
+  { id: 71, name: 'DNR College of Engineering and Technology', city: 'Bhimavaram', state: 'Andhra Pradesh' },
+  { id: 72, name: 'Chirala Engineering College', city: 'Chirala', state: 'Andhra Pradesh' },
+  { id: 73, name: 'Audisankara College of Engineering', city: 'Gudur', state: 'Andhra Pradesh' },
+  { id: 74, name: 'Sree Vidyanikethan Engineering College', city: 'Tirupati', state: 'Andhra Pradesh' },
+  { id: 75, name: 'NBKR Institute of Science and Technology', city: 'Nellore', state: 'Andhra Pradesh' },
+  // KARNATAKA
+  { id: 76, name: 'BMS College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 77, name: 'RV College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 78, name: 'PES University', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 79, name: 'MS Ramaiah Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 80, name: 'Dayananda Sagar College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 81, name: 'BMS Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 82, name: 'RNSIT - RNS Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 83, name: 'NMIT - Nitte Meenakshi Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 84, name: 'Sapthagiri College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 85, name: 'CMR Institute of Technology Bengaluru', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 86, name: 'AMC Engineering College', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 87, name: 'NIE - National Institute of Engineering', city: 'Mysuru', state: 'Karnataka' },
+  { id: 88, name: 'SJCE - Sri Jayachamarajendra College of Engineering', city: 'Mysuru', state: 'Karnataka' },
+  { id: 89, name: 'BIT - Bangalore Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 90, name: 'JSS Science and Technology University', city: 'Mysuru', state: 'Karnataka' },
+  { id: 91, name: 'Siddaganga Institute of Technology', city: 'Tumkur', state: 'Karnataka' },
+  { id: 92, name: 'Nitte Institute of Technology', city: 'Mangaluru', state: 'Karnataka' },
+  { id: 93, name: 'PESIT - PES Institute of Technology South Campus', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 94, name: 'Cambridge Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 95, name: 'East West Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 96, name: 'MVJ College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 97, name: 'Vidyavardhaka College of Engineering', city: 'Mysuru', state: 'Karnataka' },
+  { id: 98, name: 'KLE Technological University', city: 'Hubballi', state: 'Karnataka' },
+  { id: 99, name: 'SDM College of Engineering and Technology', city: 'Dharwad', state: 'Karnataka' },
+  { id: 100, name: 'Basaveshwar Engineering College', city: 'Bagalkot', state: 'Karnataka' },
+  { id: 101, name: 'RVCE - Rashtreeya Vidyalaya College', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 102, name: 'Sir M Visvesvaraya Institute of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 103, name: 'New Horizon College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 104, name: 'Global Academy of Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 105, name: 'Nagarjuna College of Engineering and Technology', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 106, name: 'BMSCE - BMS College of Engineering', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 107, name: 'DSCE - Dayananda Sagar College', city: 'Bengaluru', state: 'Karnataka' },
+  { id: 108, name: 'IIIT Dharwad', city: 'Dharwad', state: 'Karnataka' },
+  { id: 109, name: 'NIT Karnataka Surathkal', city: 'Mangaluru', state: 'Karnataka' },
+  { id: 110, name: 'NITK Surathkal', city: 'Surathkal', state: 'Karnataka' },
+];

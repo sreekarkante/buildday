@@ -1,0 +1,6 @@
+node_modules
+.next
+.env.local
+scratch
+upgrade-fallbacks.js
+benchmark.js

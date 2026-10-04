@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-bg text-white antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0F;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2563EB;
+    border-radius: 3px;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-cyan;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-blue to-accent-cyan text-white font-semibold
+           rounded-xl px-6 py-3 shadow-lg shadow-accent-blue/25
+           hover:shadow-xl hover:shadow-accent-cyan/30
+           active:scale-[0.98] transition-all duration-200
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-cyan;
+  }
+
+  .btn-secondary {
+    @apply border border-white/20 text-white font-medium
+           rounded-xl px-6 py-3
+           hover:bg-white/5 hover:border-white/30
+           active:scale-[0.98] transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white/5 border border-white/10 rounded-2xl p-6
+           backdrop-blur-sm;
+  }
+
+  .input-field {
+    @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3
+           text-white placeholder-gray-500
+           focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan
+           transition-colors duration-200;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg md:text-xl text-gray-400 mt-4;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-blue to-accent-cyan bg-clip-text text-transparent;
+  }
+
+  .container-main {
+    @apply max-w-6xl mx-auto px-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -74,6 +74,8 @@ export interface RegisterFormData {
   device?: string;
   // Honeypot
   website?: string;
+  // Matcher linking
+  session_id?: string;
 }
 
 export interface RegisterResponse {

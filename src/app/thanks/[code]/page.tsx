@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
 import { SLOTS, REWARD_TIERS } from '@/lib/constants';
 import ShareButtons from '@/components/ShareButtons';
+import RealRewardLadder from '@/components/RealRewardLadder';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://buildday.vercel.app';
 
@@ -27,20 +28,9 @@ export default async function ThanksPage({ params }: { params: { code: string } 
     );
   }
 
-  const { count: referralCount } = await supabase
-    .from('referrals')
-    .select('*', { count: 'exact', head: true })
-    .eq('referrer_id', registrant.id);
-
-  const currentReferrals = referralCount || 0;
-
   // Find the selected slot label
   const slotLabel =
     SLOTS.find((s) => s.value === registrant.slot)?.label || registrant.slot;
-
-  // Find next reward tier
-  const nextTier = REWARD_TIERS.find((t) => t.threshold > currentReferrals);
-  const referralsToNext = nextTier ? nextTier.threshold - currentReferrals : 0;
 
   // Fetch matcher result
   const { data: matcherResult } = await supabase
@@ -87,76 +77,7 @@ export default async function ThanksPage({ params }: { params: { code: string } 
 
         <ShareButtons refCode={registrant.ref_code} />
 
-        {/* Referral progress */}
-        <div className="mt-8 bg-black/30 rounded-xl p-5">
-          <div className="flex justify-between items-center mb-4">
-            <span className="font-medium text-sm text-gray-300">
-              Your Referrals
-            </span>
-            <span className="text-2xl font-bold gradient-text">
-              {currentReferrals}
-            </span>
-          </div>
-
-          {nextTier && (
-            <div className="mb-5">
-              <div className="flex justify-between text-xs text-gray-500 mb-1">
-                <span>
-                  {referralsToNext} more to unlock {nextTier.name}
-                </span>
-                <span>
-                  {currentReferrals}/{nextTier.threshold}
-                </span>
-              </div>
-              <div className="w-full bg-white/5 rounded-full h-2">
-                <div
-                  className="bg-gradient-to-r from-accent-blue to-accent-cyan h-2 rounded-full transition-all duration-500"
-                  style={{
-                    width: `${Math.min(
-                      (currentReferrals / nextTier.threshold) * 100,
-                      100
-                    )}%`,
-                  }}
-                />
-              </div>
-            </div>
-          )}
-
-          <div className="space-y-2">
-            {REWARD_TIERS.map((tier, idx) => {
-              const isAchieved = currentReferrals >= tier.threshold;
-              return (
-                <div
-                  key={idx}
-                  className={`flex items-center justify-between p-3 rounded-lg border transition-colors ${
-                    isAchieved
-                      ? 'bg-emerald-500/10 border-emerald-500/20'
-                      : 'border-white/5 bg-white/5'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <span className={isAchieved ? 'text-emerald-400' : 'text-gray-600'}>
-                      {isAchieved ? '✓' : '○'}
-                    </span>
-                    <div>
-                      <span
-                        className={`text-sm font-medium ${
-                          isAchieved ? 'text-emerald-300' : 'text-gray-400'
-                        }`}
-                      >
-                        {tier.name}
-                      </span>
-                      <p className="text-xs text-gray-500">{tier.description}</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-mono text-gray-500">
-                    {tier.threshold} refs
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <RealRewardLadder refCode={registrant.ref_code} />
       </div>
 
       {/* What's Next */}

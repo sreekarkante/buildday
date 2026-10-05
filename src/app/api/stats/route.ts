@@ -11,13 +11,15 @@ export async function GET() {
     // Get total registrant count
     const { count: totalCount } = await supabase
       .from('registrants')
-      .select('*', { count: 'exact', head: true });
+      .select('*', { count: 'exact', head: true })
+      .eq('is_simulated', false);
 
     // Get distinct college count (excluding nulls)
     const { data: collegeData } = await supabase
       .from('registrants')
       .select('college_id')
-      .not('college_id', 'is', null);
+      .not('college_id', 'is', null)
+      .eq('is_simulated', false);
 
     const uniqueColleges = new Set(collegeData?.map(r => r.college_id) || []);
 
@@ -28,7 +30,7 @@ export async function GET() {
 
     return NextResponse.json(stats, {
       headers: {
-        'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=60',
+        'Cache-Control': 'no-store, must-revalidate',
       },
     });
   } catch {

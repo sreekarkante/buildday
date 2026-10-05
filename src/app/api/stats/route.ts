@@ -23,8 +23,14 @@ export async function GET() {
 
     const uniqueColleges = new Set(collegeData?.map(r => r.college_id) || []);
 
-    const stats: StatsResponse = {
-      count: totalCount || 0,
+    const goal = 500;
+    const total = totalCount || 0;
+    const percent = Math.min((total / goal) * 100, 100);
+
+    const stats = {
+      total,
+      goal,
+      percent,
       college_count: uniqueColleges.size,
     };
 

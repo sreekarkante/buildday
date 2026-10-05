@@ -180,13 +180,13 @@ export const FALLBACK_IDEAS: Record<string, ProjectIdea[]> = {
   ],
   "ECE - Electronics & Communication": [
     {
-      "title": "IoT Sensor Dashboard",
+      "title": "Circuit Diagram Explainer",
       "pitch": "Visualize and predict sensor failures using AI.",
       "outcome": "A fully working AI prototype you can link directly on your resume.",
       "blueprint": [
         {
           "time": "0-10 min",
-          "step": "Environment Setup: Simulate IoT sensor data.",
+          "step": "Environment Setup: Upload an image of a circuit diagram.",
           "tools": "VScode, Next.js"
         },
         {
@@ -196,7 +196,7 @@ export const FALLBACK_IDEAS: Record<string, ProjectIdea[]> = {
         },
         {
           "time": "35-50 min",
-          "step": "UI & Refinement: Use AI to predict when a sensor might fail based on trends.",
+          "step": "UI & Refinement: Use AI to explain the components and logic based on trends.",
           "tools": "Tailwind CSS"
         },
         {
@@ -317,18 +317,18 @@ export const FALLBACK_IDEAS: Record<string, ProjectIdea[]> = {
       ]
     },
     {
-      "title": "Battery Health Monitor",
+      "title": "Appliance Load Calculator",
       "pitch": "Estimate the remaining lifespan of battery storage systems.",
       "outcome": "A fully working AI prototype you can link directly on your resume.",
       "blueprint": [
         {
           "time": "0-10 min",
-          "step": "Environment Setup: Log charge/discharge cycles.",
+          "step": "Environment Setup: Type a list of home appliances.",
           "tools": "VScode, Next.js"
         },
         {
           "time": "10-35 min",
-          "step": "Core Logic: Use ML to estimate battery degradation.",
+          "step": "Core Logic: Use ML to calculate total power load and suggest distribution.",
           "tools": "Gemini API, Supabase"
         },
         {
@@ -429,18 +429,18 @@ export const FALLBACK_IDEAS: Record<string, ProjectIdea[]> = {
   ],
   "MECH - Mechanical": [
     {
-      "title": "Predictive Maintenance Alert",
+      "title": "Machine Manual Q&A",
       "pitch": "Predict machine breakdowns before they happen.",
       "outcome": "A fully working AI prototype you can link directly on your resume.",
       "blueprint": [
         {
           "time": "0-10 min",
-          "step": "Environment Setup: Simulate machine vibration and temperature data.",
+          "step": "Environment Setup: Upload a PDF manual of a machine.",
           "tools": "VScode, Next.js"
         },
         {
           "time": "10-35 min",
-          "step": "Core Logic: Define failure thresholds.",
+          "step": "Core Logic: Chat with the manual to find troubleshooting steps.",
           "tools": "Gemini API, Supabase"
         },
         {

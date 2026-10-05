@@ -25,7 +25,14 @@ export async function POST(req: NextRequest) {
         const prompt = `You are an expert engineering mentor. Generate a software project idea for a final-year engineering student.
 Branch: ${branch}
 Interest: ${interest || 'General'}
-The project must be buildable in 60 minutes using AI tools.
+CRITICAL CONSTRAINTS:
+1. Every idea must be buildable by a complete beginner in 60 minutes.
+2. Must use ONLY a simple web app (Next.js or plain HTML/JS) and a single LLM API call.
+3. Use ONLY free tiers.
+4. NO blockchain, NO hardware, NO robotics, NO model training, NO paid services.
+5. The core feature must be demoable in under 2 minutes.
+6. Prefer ideas where the user types or uploads something (text/image) and the AI returns something useful.
+
 Output STRICT JSON exactly matching this format, with no markdown formatting or extra text:
 {
   "title": "Project Name",
@@ -98,13 +105,16 @@ Output STRICT JSON exactly matching this format, with no markdown formatting or 
     }
 
     // Fire and forget DB insert so the response is instant
+    // Using .then() instead of .catch() directly because Supabase returns a thenable, not a native Promise
     const supabase = getSupabaseAdmin();
     supabase.from('matcher_results').insert({
       session_id,
       branch,
       interest,
       result: idea
-    }).catch(err => console.error('[Matcher] DB Insert Error:', err));
+    }).then(({ error }) => {
+      if (error) console.error('[Matcher] DB Insert Error:', error);
+    });
 
     const latency_ms = Date.now() - startTime;
     const currentModel = apiKey && apiKey !== 'your-gemini-key' ? (process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite') : 'none';
@@ -123,8 +133,23 @@ Output STRICT JSON exactly matching this format, with no markdown formatting or 
       }
     });
 
-  } catch (error) {
-    console.error('Matcher error:', error);
-    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
+  } catch (error: any) {
+    console.error('CRITICAL Matcher error (serving fallback):', error.stack || error);
+    
+    // In case of any catastrophic failure, still return 200 with a safe fallback
+    const fallbackIdea = FALLBACK_IDEAS['Other'][0];
+    return NextResponse.json({
+      success: true,
+      data: {
+        title: fallbackIdea.title,
+        pitch: fallbackIdea.pitch
+      },
+      meta: {
+        source: 'fallback',
+        model: 'none',
+        latency_ms: Date.now() - startTime,
+        error_recovered: true
+      }
+    });
   }
 }

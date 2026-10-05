@@ -82,7 +82,8 @@
   }
 }
 
-  select.input-field option {
-    background-color: #000000;
-    color: #000000;
-  }
+
+
+select { color-scheme: dark; }
+select option { background-color: #18181b; color: #fafafa; }
+

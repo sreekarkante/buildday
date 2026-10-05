@@ -78,7 +78,7 @@ export default function ProjectMatcher() {
                 >
                   <option value="">Select Branch</option>
                   {BRANCHES.map((b) => (
-                    <option key={b} value={b} className="bg-dark-bg">
+                    <option key={b} value={b}>
                       {b}
                     </option>
                   ))}

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getSupabaseAdmin } from '@/lib/supabase-server';
+import { verifyAdminToken } from '@/lib/adminSession';
 import { REWARD_TIERS } from '@/lib/rewards';
 import { checkRateLimit } from '@/lib/rate-limit';
 
@@ -25,7 +26,7 @@ export async function GET(req: NextRequest) {
 
     const cookieStore = cookies();
     const adminCookie = cookieStore.get('admin_session')?.value;
-    const isAdmin = adminCookie === process.env.ADMIN_PASSWORD;
+    const isAdmin = verifyAdminToken(adminCookie);
     const isDev = process.env.NODE_ENV !== 'production';
     
     const allowSim = isAdmin || isDev;

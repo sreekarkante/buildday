@@ -434,9 +434,9 @@ export default function RegisterPage() {
                   value={formData.branch}
                   onChange={(e) => updateForm('branch', e.target.value)}
                 >
-                  <option value="">Select your branch</option>
+                  <option value="" className="bg-dark-bg">Select your branch</option>
                   {BRANCHES.map((b) => (
-                    <option key={b} value={b}>
+                    <option key={b} value={b} className="bg-dark-bg">
                       {b}
                     </option>
                   ))}
@@ -457,9 +457,9 @@ export default function RegisterPage() {
                   value={formData.grad_year || ''}
                   onChange={(e) => updateForm('grad_year', Number(e.target.value))}
                 >
-                  <option value="">Select year</option>
+                  <option value="" className="bg-dark-bg">Select year</option>
                   {GRAD_YEARS.map((y) => (
-                    <option key={y} value={y}>
+                    <option key={y} value={y} className="bg-dark-bg">
                       {y}
                     </option>
                   ))}

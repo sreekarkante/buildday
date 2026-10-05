@@ -81,3 +81,8 @@
     text-wrap: balance;
   }
 }
+
+  select.input-field option {
+    background-color: #000000;
+    color: #000000;
+  }
